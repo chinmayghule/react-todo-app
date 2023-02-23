@@ -1,0 +1,106 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body, h1, h2, p {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  outline: none;
+  transition: outline-offset 100ms ease;
+}
+
+*:focus-visible {
+  outline: 2px solid black;
+  outline-offset: 0.25rem;
+}
+
+.todo-app-container {
+  display: grid;
+  grid-template-areas: 
+    "todoList todoList"
+    "newTodoInput newTodoInput"
+    "clearCompletedTodoItems addTodoItems"
+    "todoItemsRemaining todoItemsRemaining";
+
+  width: clamp(400px, 400px + 10vw, 80vw);
+  margin-inline: auto;
+  margin-block-start: 3rem;
+  padding: 1rem;
+
+  font-size: 1.125rem;
+
+}
+
+.todoList-container {
+  grid-area: todoList;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  margin-block-end: 2rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.todo-app-container > input[type="text"] {
+  grid-area: newTodoInput;
+
+  padding: 0.75rem;
+  margin-block-end: 1rem;
+  border-radius: 0.5rem;
+  font-size: inherit;
+  border: 2px solid gray;
+}
+
+.todo-app-container > button {
+  font-size: inherit;
+  padding-block: 0.75rem;
+  padding-inline: 1.5rem;
+  border-radius: 0.5rem;
+  width: fit-content;
+}
+
+.add-todo-item {
+  grid-area: addTodoItems;
+  justify-self: end;
+}
+
+.clear-completed-todo-items {
+  grid-area: clearCompletedTodoItems;
+  justify-self: start;
+}
+
+.todo-items-remaining {
+  grid-area: todoItemsRemaining;
+
+  margin-block-start: 2rem;
+  text-align: center;
+}
+
+.todoItem {
+  background-color: lightskyblue;
+  padding-inline: 1rem;
+  padding-block: 2rem;
+  font-size: inherit;
+}
+
+.todoItem > label {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.todoItem input[type="checkbox"] {
+  min-width: 1.5rem;
+  min-height: 1.5rem;
+  margin: 0;
+  align-self: flex-start;
+}
+
+.todoItem div {
+  align-self: flex-start;
+}
