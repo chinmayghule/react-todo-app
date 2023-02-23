@@ -11,16 +11,6 @@ function App() {
   });
 
   const todoNameRef = useRef();
-
-  
-  /*
-  useEffect(() => {
-    const storedTodoList = JSON.parse( localStorage.getItem(LOCAL_STORAGE_KEY) );
-
-    setTodoList(storedTodoList);
-
-  }, []);
-  */
   
   useEffect(() => {
     localStorage.setItem( LOCAL_STORAGE_KEY, JSON.stringify(todoList) );
